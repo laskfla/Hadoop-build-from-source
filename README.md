@@ -1,2 +1,40 @@
-# Hadoop-build-from-source
-hadoop build from source
+# Hadoop-build-from-source on Mac
+
+## build hadoop 3.0 but failed , see below for the issues met in build 
+1. install packges first :
+brew install gcc autoconf automake libtool cmake snappy gzip bzip2  zlib openssl
+
+2. build& install protobuf from source , not sure why brew instal protobuf250 not working well when build hadoop . 
+It always throw some errors related to protobuf .
+checkou this for install protobuf manually . 
+https://github.com/shawfdong/hyades/wiki/Building-Hadoop-from-source
+
+3. run below build command instead, otherwise cmake may throw error and not able to find openssl.  
+The "export" openssl varaibles does not work in this hadoop3.0.  
+cmake actually does not respect those variables , instead , need to pass as -D parameters, check this for 
+detail .  
+https://stackoverflow.com/questions/16248775/cmake-not-able-to-find-openssl-library . 
+https://gist.github.com/rajkrrsingh/77f3c4d20c109c96a3e9b36c224c6b3d . 
+
+ Below -D option is to pass the value to the maven variables in pom.xml like openssl.lib , etc  .
+ 
+   mvn clean package -Dmaven.javadoc.skip=true  \
+ -Drequire.openssl=true \
+ -Dopenssl.prefix=/usr/local/opt/openssl \
+ -Dopenssl.lib=/usr/local/opt/openssl/lib \
+ -Dopenssl.include=/usr/local/opt/openssl/include \
+ -Pdist,native -DskipTests -Dtar 
+
+4.  But still failed to build and this is reported in JIRA .  
+    https://issues.apache.org/jira/browse/YARN-8622 . 
+    will try that later.
+
+
+
+
+### Reference
+https://medium.com/@faizanahemad/hadoop-native-libraries-installation-on-mac-osx-d8338a6923db  
+https://github.com/shawfdong/hyades/wiki/Building-Hadoop-from-source . 
+
+
+
