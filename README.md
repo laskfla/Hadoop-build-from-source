@@ -29,6 +29,14 @@ https://gist.github.com/rajkrrsingh/77f3c4d20c109c96a3e9b36c224c6b3d .
     https://issues.apache.org/jira/browse/YARN-8622 . 
     will try that later.
 
+## build hadoop 2.7.1 . 
+This time it is easy and run :  
+ mvn package -Dmaven.javadoc.skip=true -Pdist,native -DskipTests -Dtar . 
+ To start a single-node cluster , check this for detail ,basically is to setup the config files and then start.  
+ https://github.com/laskfla/Hadoop-On-Window
+ 
+ 
+
 
 
 
