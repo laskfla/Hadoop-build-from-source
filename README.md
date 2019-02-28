@@ -63,6 +63,8 @@ HTH
 ### Reference
 https://medium.com/@faizanahemad/hadoop-native-libraries-installation-on-mac-osx-d8338a6923db  
 https://github.com/shawfdong/hyades/wiki/Building-Hadoop-from-source . 
+https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html#Fully-Distributed_Operation
+
 
 
 
