@@ -36,7 +36,9 @@ This time it is easy and run :
  https://github.com/laskfla/Hadoop-On-Window
  
  The difference between a "single-node cluster" and "single-process hadoop" :  
- https://stackoverflow.com/questions/23435333/what-is-the-difference-between-single-node-pseudo-distributed-mode-in-hadoop
+ https://stackoverflow.com/questions/23435333/what-is-the-difference-between-single-node-pseudo-distributed-mode-in-hadoop  
+ change the hadoop.tmp.dir to an external disk like /mnt/hadoop etc.  
+ 
  
 ``` By default, Hadoop is configured to run in a non-distributed or standalone mode, as a single Java process. There are no daemons running and everything runs in a single JVM instance. HDFS is not used.
 
